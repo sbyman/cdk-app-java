@@ -28,6 +28,31 @@
                     <mainClass>com.myorg.CdkAppJavaApp</mainClass>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.myorg.CdkAppJavaApp</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
@@ -38,21 +63,43 @@
             <version>${cdk.version}</version>
         </dependency>
 
-        <!-- Respective AWS Construct Libraries -->
+        <!-- Respective AWS CDK Libraries -->
         <dependency>
             <groupId>software.amazon.awscdk</groupId>
-            <artifactId>sns</artifactId>
-            <version>${cdk.version}</version>
+            <artifactId>apigateway</artifactId>
+            <version>[1.20.0, 2)</version>
         </dependency>
         <dependency>
             <groupId>software.amazon.awscdk</groupId>
-            <artifactId>sns-subscriptions</artifactId>
-            <version>${cdk.version}</version>
+            <artifactId>dynamodb</artifactId>
+            <version>[1.20.0, 2)</version>
+        </dependency>
+
+        <!-- AWS Lambda Dependencies -->
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>dynamodb</artifactId>
+            <version>2.13.54</version>
         </dependency>
         <dependency>
-            <groupId>software.amazon.awscdk</groupId>
-            <artifactId>sqs</artifactId>
-            <version>${cdk.version}</version>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-lambda-java-core</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-lambda-java-events</artifactId>
+            <version>2.2.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-lambda-java-log4j2</artifactId>
+            <version>1.2.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/junit/junit -->
