@@ -1,7 +1,7 @@
 # Welcome to your CDK Java project!
 
 You should explore the contents of this project. It demonstrates a CDK app with an instance of a stack (`CdkAppJavaStack`)
-which contains two dynamoDBs, some lambda APIs and an API Gateway integraiton.
+which contains two dynamoDBs, some lambda APIs and an API Gateway integration.
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
